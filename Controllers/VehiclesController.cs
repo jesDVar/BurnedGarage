@@ -60,6 +60,7 @@ namespace BurnedGarage.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        
         public async Task<IActionResult> Create([Bind("Id,RegNr,Color,Brand,Wheels,MemberId,VehicleTypeId")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
