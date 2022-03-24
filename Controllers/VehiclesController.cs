@@ -50,7 +50,7 @@ namespace BurnedGarage.Controllers
         // GET: Vehicles/Create
         public IActionResult Create()
         {
-            ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Id");
+            //ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Id");
             ViewData["VehicleTypeId"] = new SelectList(_context.Set<VehicleType>(), "Id", "Id");
             return View();
         }
@@ -69,7 +69,7 @@ namespace BurnedGarage.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Id", vehicle.MemberId);
+            //ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Id", vehicle.MemberId);
             ViewData["VehicleTypeId"] = new SelectList(_context.Set<VehicleType>(), "Id", "Id", vehicle.VehicleTypeId);
             return View(vehicle);
         }
@@ -87,7 +87,7 @@ namespace BurnedGarage.Controllers
             {
                 return NotFound();
             }
-            ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Id", vehicle.MemberId);
+            //ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Id", vehicle.MemberId);
             ViewData["VehicleTypeId"] = new SelectList(_context.Set<VehicleType>(), "Id", "Id", vehicle.VehicleTypeId);
             return View(vehicle);
         }
@@ -124,7 +124,7 @@ namespace BurnedGarage.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Id", vehicle.MemberId);
+            //ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Id", vehicle.MemberId);
             ViewData["VehicleTypeId"] = new SelectList(_context.Set<VehicleType>(), "Id", "Id", vehicle.VehicleTypeId);
             return View(vehicle);
         }
