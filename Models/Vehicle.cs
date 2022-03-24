@@ -14,7 +14,7 @@
         public ICollection<ParkingSlot> ParkingSlots { get; set; } = new List<ParkingSlot>();
         public VehicleType VehicleType { get; set; }
 
-        public int MemberId { get; set; }
+        public string MemberId { get; set; }
         public int VehicleTypeId { get; set; }
     }
 }
