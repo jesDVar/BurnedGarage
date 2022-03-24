@@ -1,4 +1,4 @@
-﻿using BurnedGarage.Data;
+using BurnedGarage.Data;
 using BurnedGarage.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
