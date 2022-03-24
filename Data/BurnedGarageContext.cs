@@ -16,7 +16,7 @@ namespace BurnedGarage.Data
         {
         }
 
-     //   public DbSet<BurnedGarage.Models.Member> Member { get; set; }
+        public DbSet<BurnedGarage.Models.Member> Member { get; set; }
 
         public DbSet<BurnedGarage.Models.Vehicle> Vehicle { get; set; }
     }

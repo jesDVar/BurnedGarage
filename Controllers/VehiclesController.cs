@@ -124,7 +124,7 @@ namespace BurnedGarage.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            //ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Id", vehicle.MemberId);
+            ViewData["MemberId"] = new SelectList(_context.Member, "Id", "Id", vehicle.MemberId);
             ViewData["VehicleTypeId"] = new SelectList(_context.Set<VehicleType>(), "Id", "Id", vehicle.VehicleTypeId);
             return View(vehicle);
         }
