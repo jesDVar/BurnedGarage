@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BurnedGarage.Migrations
 {
     [DbContext(typeof(BurnedGarageContext))]
-    [Migration("20220324094656_init")]
+    [Migration("20220324100923_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -145,10 +145,7 @@ namespace BurnedGarage.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MemberId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("MemberId1")
+                    b.Property<string>("MemberId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
@@ -163,7 +160,7 @@ namespace BurnedGarage.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MemberId1");
+                    b.HasIndex("MemberId");
 
                     b.HasIndex("VehicleTypeId");
 
@@ -342,7 +339,7 @@ namespace BurnedGarage.Migrations
                 {
                     b.HasOne("BurnedGarage.Models.Member", "Member")
                         .WithMany("Vehicles")
-                        .HasForeignKey("MemberId1")
+                        .HasForeignKey("MemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

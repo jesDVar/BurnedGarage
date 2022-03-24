@@ -1,4 +1,4 @@
-﻿using System;
+﻿susing System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -11,10 +11,6 @@ namespace BurnedGarage.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Vehicle_Member_MemberId",
-                table: "Vehicle");
-
-            migrationBuilder.DropIndex(
-                name: "IX_Vehicle_MemberId",
                 table: "Vehicle");
 
             migrationBuilder.DropPrimaryKey(
@@ -30,12 +26,13 @@ namespace BurnedGarage.Migrations
                 table: "AspNetUsers",
                 newName: "Email");
 
-            migrationBuilder.AddColumn<string>(
-                name: "MemberId1",
+            migrationBuilder.AlterColumn<string>(
+                name: "MemberId",
                 table: "Vehicle",
                 type: "nvarchar(450)",
                 nullable: false,
-                defaultValue: "");
+                oldClrType: typeof(int),
+                oldType: "int");
 
             migrationBuilder.AlterColumn<string>(
                 name: "Email",
@@ -267,11 +264,6 @@ namespace BurnedGarage.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vehicle_MemberId1",
-                table: "Vehicle",
-                column: "MemberId1");
-
-            migrationBuilder.CreateIndex(
                 name: "EmailIndex",
                 table: "AspNetUsers",
                 column: "NormalizedEmail");
@@ -311,9 +303,9 @@ namespace BurnedGarage.Migrations
                 column: "RoleId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Vehicle_AspNetUsers_MemberId1",
+                name: "FK_Vehicle_AspNetUsers_MemberId",
                 table: "Vehicle",
-                column: "MemberId1",
+                column: "MemberId",
                 principalTable: "AspNetUsers",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
@@ -322,7 +314,7 @@ namespace BurnedGarage.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Vehicle_AspNetUsers_MemberId1",
+                name: "FK_Vehicle_AspNetUsers_MemberId",
                 table: "Vehicle");
 
             migrationBuilder.DropTable(
@@ -343,10 +335,6 @@ namespace BurnedGarage.Migrations
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
-            migrationBuilder.DropIndex(
-                name: "IX_Vehicle_MemberId1",
-                table: "Vehicle");
-
             migrationBuilder.DropPrimaryKey(
                 name: "PK_AspNetUsers",
                 table: "AspNetUsers");
@@ -358,10 +346,6 @@ namespace BurnedGarage.Migrations
             migrationBuilder.DropIndex(
                 name: "UserNameIndex",
                 table: "AspNetUsers");
-
-            migrationBuilder.DropColumn(
-                name: "MemberId1",
-                table: "Vehicle");
 
             migrationBuilder.DropColumn(
                 name: "AccessFailedCount",
@@ -425,6 +409,14 @@ namespace BurnedGarage.Migrations
                 newName: "EMail");
 
             migrationBuilder.AlterColumn<int>(
+                name: "MemberId",
+                table: "Vehicle",
+                type: "int",
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(450)");
+
+            migrationBuilder.AlterColumn<int>(
                 name: "EMail",
                 table: "Member",
                 type: "int",
@@ -448,11 +440,6 @@ namespace BurnedGarage.Migrations
                 name: "PK_Member",
                 table: "Member",
                 column: "Id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Vehicle_MemberId",
-                table: "Vehicle",
-                column: "MemberId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Vehicle_Member_MemberId",
